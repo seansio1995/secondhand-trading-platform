@@ -7,4 +7,4 @@
 ```
 
 ### Example of App
-![][second-hand-app.png]
+<img src="second-hand-app.png">
