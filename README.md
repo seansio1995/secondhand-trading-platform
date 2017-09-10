@@ -7,4 +7,4 @@
 ```
 
 ### Example of App
-![alt text]["second-hand-app.png"]
+![alt text][second-hand-app.png]
