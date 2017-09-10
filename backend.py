@@ -37,7 +37,7 @@ def search(product="",price=0,year=0,name="",phone="",email="",address=""):
 def delete(id):
     conn=sqlite3.connect("products.db")
     cur=conn.cursor()
-    cur.execute("delete from where id=?",(id,))
+    cur.execute("delete from products where id=?",(id,))
     conn.commit()
     conn.close()
 
@@ -49,3 +49,5 @@ def update(id,product,price,year,name,phone,email,address):
     cur.execute("update products set product=?, price=?, year=?, name=?, phone=?,email=?, address=? where id=?",(product,price,year,name,phone,email,address,id))
     conn.commit()
     conn.close()
+
+connect()

@@ -1,21 +1,44 @@
 from tkinter import *
+import backend
 def get_selected_row(event):
-    pass
+    global selected_tuple
+    index=list1.curselection()[0]
+    selected_tuple=list1.get(index)
+    e1.delete(0,END)
+    e1.insert(END,selected_tuple[1])
+    e2.delete(0,END)
+    e2.insert(END,selected_tuple[2])
+    e3.delete(0,END)
+    e3.insert(END,selected_tuple[3])
+    e4.delete(0,END)
+    e4.insert(END,selected_tuple[4])
+    e5.delete(0,END)
+    e5.insert(END,selected_tuple[5])
+    e6.delete(0,END)
+    e6.insert(END,selected_tuple[6])
+    e7.delete(0,END)
+    e7.insert(END,selected_tuple[7])
 
 def view_command():
-    pass
+    list1.delete(0,END)
+    for row in backend.view():
+        list1.insert(END,row)
 
 def search_command():
-    pass
+    list1.delete(0,END)
+    for row in backend.search(product_text.get(),price_value.get(),year_value.get(),name_text.get(),phone_text.get(),email_text.get(),address_text.get()):
+        list1.insert(END,row)
 
 def add_command():
-    pass
+    backend.insert(product_text.get(),price_value.get(),year_value.get(),name_text.get(),phone_text.get(),email_text.get(),address_text.get())
+    list1.delete(0,END)
+    list1.insert(END,(product_text.get(),price_value.get(),year_value.get(),name_text.get(),phone_text.get(),email_text.get(),address_text.get()))
 
 def delete_command():
-    pass
+    backend.delete(selected_tuple[0])
 
 def update_command():
-    pass
+    backend.update(selected_tuple[0],product_text.get(),price_value.get(),year_value.get(),name_text.get(),phone_text.get(),email_text.get(),address_text.get())
 
 window=Tk()
 window.configure(background="dodger blue")
@@ -78,7 +101,7 @@ list1=Listbox(window, height=6,width=35)
 list1.grid(row=3,column=1,rowspan=6,columnspan=2)
 
 sb1=Scrollbar(window)
-sb1.grid(row=2,column=2,rowspan=6)
+sb1.grid(row=3,column=3,rowspan=6)
 
 list1.configure(yscrollcommand=sb1.set)
 sb1.configure(command=list1.yview)
