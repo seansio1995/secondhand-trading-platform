@@ -3,7 +3,7 @@
 
 ### How to use:
 ```
-  python frontend.py
+  python CS4750.py
 ```
 
 ### Example of App
